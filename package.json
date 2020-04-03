@@ -1,0 +1,24 @@
+{
+  "name": "video_player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastien17-dev/video_player.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bastien17-dev/video_player/issues"
+  },
+  "homepage": "https://github.com/bastien17-dev/video_player#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
