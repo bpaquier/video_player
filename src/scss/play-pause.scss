@@ -1,0 +1,41 @@
+.play__start {
+  display: none;
+  width: 15px;
+  height: 15px;
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+  background-color: white;
+}
+
+.play__start.is-visible {
+  display: block;
+}
+
+.play__pause {
+  display: none;
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+
+.play__pause.is-visible {
+  display: block;
+}
+
+.play__pause::before {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 5px;
+  height: 15px;
+  background-color: white;
+  left: 0px;
+}
+.play__pause::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 5px;
+  height: 15px;
+  background-color: white;
+  right: 0px;
+}

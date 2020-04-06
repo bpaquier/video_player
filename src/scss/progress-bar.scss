@@ -1,0 +1,36 @@
+.progress-bar {
+  position: relative;
+  width: 70%;
+  height: 15px;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.progress-bar:hover {
+  cursor: pointer;
+}
+
+.progress-bar__bar {
+  height: 15px;
+  width: 0%;
+  background-color: white;
+}
+
+.progress-bar__clickable {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 15px;
+}
+
+.progress-bar__time {
+  display: none;
+  position: absolute;
+  min-width: 46px;
+  padding: 5px;
+  background-color: white;
+  top: -40px;
+  transform: translateX(-50%);
+}
+
+.progress-bar:hover .progress-bar__time {
+  display: block;
+}

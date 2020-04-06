@@ -1,0 +1,80 @@
+.volume {
+  width: 12%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.volume__mute {
+  position: relative;
+}
+
+.volume__mute svg {
+  width: 20px;
+  fill: white;
+}
+
+.volume__mute.is-muted::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 2px;
+  height: 30px;
+  background-color: white;
+  transform: translateY(-80%) translateX(400%) rotate(45deg);
+}
+
+/* .volume__change {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+}
+
+.volume__change--down::before {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 15px;
+  height: 2px;
+  background-color: white;
+  border-radius: 10%;
+  left: 0;
+}
+
+.volume__change--up::before {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 15px;
+  height: 2px;
+  background-color: white;
+  border-radius: 10%;
+  left: 0;
+}
+.volume__change--up::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 15px;
+  height: 2px;
+  background-color: white;
+  border-radius: 10%;
+  transform: rotate(90deg);
+  left: 0;
+} */
+
+.volume__controller {
+  display: flex;
+  width: 50px;
+}
+
+.volume__controller input {
+  width: 100%;
+}
+
+.volume__controller input::-webkit-slider-runnable-track {
+  background-color: white;
+  border-radius: 20px;
+  height: 5px;
+}
