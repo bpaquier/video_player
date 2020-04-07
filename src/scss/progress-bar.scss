@@ -1,36 +1,58 @@
 .progress-bar {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 70%;
   height: 15px;
-  background-color: rgba(128, 128, 128, 0.5);
-}
-.progress-bar:hover {
-  cursor: pointer;
 }
 
 .progress-bar__bar {
-  height: 15px;
-  width: 0%;
-  background-color: white;
-}
-
-.progress-bar__clickable {
-  position: absolute;
-  top: 0;
+  height: 100%;
   width: 100%;
-  height: 15px;
+  background-color: rgb(65, 65, 65);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Get rid of default border in Firefox. */
+    border: none;
+
+    &::-webkit-progress-bar {
+      background-color: $main-color;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    }
+
+    &::-moz-progress-bar {
+      background-color: $main-color;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    }
+  }
 }
 
 .progress-bar__time {
-  display: none;
+  visibility: hidden;
   position: absolute;
-  min-width: 46px;
   padding: 5px;
-  background-color: white;
-  top: -40px;
+  border-radius: 3px;
+  background-color: rgb(65, 65, 65);
+  color: $main-color;
+  top: -25px;
   transform: translateX(-50%);
+
+  .progress-bar:hover & {
+    visibility: visible;
+  }
 }
 
-.progress-bar:hover .progress-bar__time {
-  display: block;
+.progress-bar__time--indication {
+  text-align: center;
+  color: $main-color;
+  width: 50px;
 }

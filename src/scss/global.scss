@@ -1,5 +1,12 @@
+$main-color: #eee;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
 button {
-  color: white;
+  color: $main-color;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   outline-style: none;
@@ -17,6 +24,7 @@ button:active {
 .player {
   position: relative;
   width: 100vw;
+  max-height: 100vh;
 }
 
 .player__video {
@@ -29,7 +37,7 @@ button:active {
   width: 80%;
   bottom: 20px;
   left: 10%;
-  border: 1px solid white;
+  background-color: black;
   border-radius: 3px;
   display: flex;
   justify-content: space-around;

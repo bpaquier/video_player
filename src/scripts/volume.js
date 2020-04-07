@@ -1,10 +1,12 @@
 const video = document.querySelector('.player__video');
 const volumeController = document.querySelector('.volume__controller input');
 const volMute = document.querySelector('.volume__mute');
+const volumeIndication = document.querySelector('.volume__indication');
 
 let previousVolume;
 
-//video.volume = 0.5;
+video.volume = 0.5;
+volumeController.value = 0.5;
 
 volumeController.addEventListener('mousemove', (e) => {
   video.volume = e.target.value;
@@ -14,6 +16,7 @@ volumeController.addEventListener('mousemove', (e) => {
     volMute.classList.remove('is-muted');
   }
   previousVolume = video.volume;
+  volumeIndication.innerHTML = `${Math.round(video.volume * 100)}%`;
 });
 
 volMute.addEventListener('click', () => {
@@ -22,6 +25,7 @@ volMute.addEventListener('click', () => {
     volumeController.value = 0.5;
   } else if (video.volume > 0) {
     video.volume = 0;
+    volumeController.value = 0;
   } else {
     video.volume = previousVolume;
     volumeController.value = previousVolume;

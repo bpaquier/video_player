@@ -3,32 +3,30 @@ const controler = document.querySelector('.controler');
 const progressbarContainer = document.querySelector('.progress-bar');
 const progressBar = document.querySelector('.progress-bar__bar');
 const timeProgression = document.querySelector('.progress-bar__time');
+const timeIndication = document.querySelector(
+  '.progress-bar__time--indication'
+);
+
+progressBar.addEventListener('click', (e) => {
+  let mousePosition =
+    e.clientX - (progressbarContainer.offsetLeft + controler.offsetLeft);
+  progressBar.value = (mousePosition * 100) / progressBar.offsetWidth;
+  video.currentTime = (video.duration * progressBar.value) / 100;
+});
 
 video.addEventListener('timeupdate', () => {
   let progressRate = (video.currentTime * 100) / video.duration;
-  progressBar.style.width = progressRate + '%';
+  progressBar.value = progressRate;
+  timeIndication.innerHTML = setTime(Math.floor(video.currentTime));
 });
 
-document
-  .querySelector('.progress-bar__clickable')
-  .addEventListener('click', (e) => {
-    let clickPosition =
-      ((e.clientX - (progressbarContainer.offsetLeft + controler.offsetLeft)) *
-        100) /
-      progressbarContainer.offsetWidth;
-    progressBar.style.width = clickPosition + '%';
-    video.currentTime = (video.duration * clickPosition) / 100;
-  });
-
-progressbarContainer.addEventListener('mousemove', (e) => {
+progressBar.addEventListener('mousemove', (e) => {
   let mousePosition =
     e.clientX - (progressbarContainer.offsetLeft + controler.offsetLeft);
-  timeProgression.style.left = mousePosition + 'px';
-
+  timeProgression.style.left = `${mousePosition}px`;
   let effectiveTimeProgression = Math.floor(
-    (video.duration * mousePosition) / progressbarContainer.offsetWidth
+    (video.duration * mousePosition) / progressBar.offsetWidth
   );
-
   timeProgression.innerHTML = setTime(effectiveTimeProgression);
 });
 
@@ -50,5 +48,5 @@ const setTime = (time) => {
         ? calculMinutes.toString()
         : `0${calculMinutes.toString()}`;
   }
-  return `${minutes} : ${seconds}`;
+  return `${minutes}:${seconds}`;
 };
