@@ -8,7 +8,7 @@ let previousVolume;
 video.volume = 0.5;
 volumeController.value = 0.5;
 
-volumeController.addEventListener('mousemove', (e) => {
+const changeVolume = (e) => {
   video.volume = e.target.value;
   if (video.volume === 0) {
     volMute.classList.add('is-muted');
@@ -17,9 +17,9 @@ volumeController.addEventListener('mousemove', (e) => {
   }
   previousVolume = video.volume;
   volumeIndication.innerHTML = `${Math.round(video.volume * 100)}%`;
-});
+};
 
-volMute.addEventListener('click', () => {
+const muteVolume = () => {
   if (previousVolume === 0) {
     video.volume = 0.5;
     volumeController.value = 0.5;
@@ -31,4 +31,13 @@ volMute.addEventListener('click', () => {
     volumeController.value = previousVolume;
   }
   volMute.classList.toggle('is-muted');
+};
+
+volumeController.addEventListener('mousemove', (e) => {
+  changeVolume(e);
 });
+volumeController.addEventListener('click', (e) => {
+  changeVolume(e);
+});
+
+volMute.addEventListener('click', muteVolume);

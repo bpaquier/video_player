@@ -34,12 +34,18 @@ button:active {
 .controler {
   padding: 5px 10px 5px 10px;
   position: absolute;
-  width: 80%;
-  bottom: 20px;
-  left: 10%;
-  background-color: black;
+  width: 70%;
+  top: 90%;
+  left: 15%;
+  background-color: rgb(32, 32, 32);
   border-radius: 3px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: opacity 0.5s linear;
+  cursor: move;
+
+  &.is-invisible {
+    opacity: 0;
+  }
 }
